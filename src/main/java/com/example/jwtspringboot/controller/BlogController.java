@@ -27,4 +27,15 @@ public class BlogController {
     public ResponseEntity findById(@PathVariable Long id){
         return new ResponseEntity(blogService.findById(id), HttpStatus.OK);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity update(@RequestBody Blog blog, @PathVariable Long id){
+        blog.setId(id);
+        blogService.save(blog);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Long id){
+        blogService.remove(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
