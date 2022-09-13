@@ -38,4 +38,8 @@ public class BlogController {
         blogService.remove(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+    @GetMapping("/search-by-content")
+    public ResponseEntity findAllByContentContains(@RequestParam String content){
+        return new ResponseEntity(blogService.findAllByContentContains(content), HttpStatus.OK);
+    }
 }

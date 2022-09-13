@@ -31,4 +31,8 @@ public class BlogServiceImpl implements IBlogService {
         blogRepository.deleteById(id);
     }
 
+    @Override
+    public Iterable<Blog> findAllByContentContains(String content) {
+        return blogRepository.findAllByContentContains(content);
+    }
 }
